@@ -9,7 +9,8 @@ import Foundation
 
 
 // MARK: - CountriesListElement
-struct CountriesListElement: Codable {
+struct CountriesListElement: Codable, Identifiable {
+    var id: String = UUID().uuidString
     let capital, code: String
     let currency: Currency
     let flag: String
@@ -17,6 +18,10 @@ struct CountriesListElement: Codable {
     let name: String
     let region: Region
     let demonym: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case capital, code, currency, flag, language, name, region, demonym
+    }
 }
 
 // MARK: - Currency

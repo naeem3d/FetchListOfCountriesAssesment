@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 enum APIServiceError: Error {
     case invalidURL
     case decodingError
@@ -30,9 +29,11 @@ class ApiServices: APIServiceProtocol {
             let contriesList = try JSONDecoder().decode([CountriesListElement].self, from: data)
             
             return contriesList
-        } catch _ as DecodingError {
+        }  catch let decodeError as DecodingError {
+            print("Decoding error: \(decodeError)")
             throw APIServiceError.decodingError
         } catch {
+            print("Unknown error: \(error.localizedDescription)")
             throw APIServiceError.unknownError
         }
     }

@@ -29,7 +29,7 @@ class ViewController: UIViewController, UISearchResultsUpdating {
         
         tableView.dataSource = self
         tableView.delegate = self
-        vm.fetchSchools()
+        vm.fetchContriesList()
         
         NotificationCenter.default.addObserver(self, selector: #selector(dataUpdated), name: Notification.Name("dataUpdated"), object: nil)
         searchController = UISearchController(searchResultsController: nil)

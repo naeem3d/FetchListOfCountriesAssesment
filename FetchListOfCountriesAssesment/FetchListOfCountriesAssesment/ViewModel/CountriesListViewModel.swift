@@ -19,10 +19,10 @@ class CountriesListViewModel: ObservableObject {
        }
     
  
-    func fetchSchools() {
+    func fetchContriesList() {
         Task {
             do {
-               let fetchCountries = try await apiService.fetchCountries() 
+               let fetchCountries = try await apiService.fetchCountries()
                 DispatchQueue.main.async {
                     self.countriesListElementArray = fetchCountries
                     
